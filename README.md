@@ -12,7 +12,7 @@ This portfolio website is built to present my work and services in a clean, mode
 
 ## 💻 Technologies Used
 - **Frontend:** HTML, CSS, JavaScript
-- **Other Tools:** Git, GitHub Pages for deployment
+- **Other Tools:** netlify for deployment
 
 ## 🚀 Features
 - Fully responsive design for mobile and desktop

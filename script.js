@@ -107,7 +107,6 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
-
 animate();
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;

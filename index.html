@@ -1,219 +1,835 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- box icon -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <!-- custom css -->
-    <link rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zakee Ahmad — Digital Universe</title>
+
+<meta name="description" content="Zakee Ahmad — Computer Science Engineering student, developer and problem solver.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+
+<link rel="stylesheet" href="style.CSS">
 <body>
+<!-- AMBIENT CURSOR GLOW -->
 
-<canvas id="cursor-glitter"></canvas>
+<div class="ambient" id="ambient"></div>
 
-    <!-- header design -->
-    <header class="header">
-        <a href="#" class="logo">Portfolio</a>
+<div class="cursor" id="cursor"></div>
 
-        <i class='bx bx-menu' id='menu-icon'></i>
+<div class="cursor-ring" id="cursorRing"></div>
 
-        <nav class="navbar">
-         <a href="#home" class="active">Home</a>
-         <a href="#about">About</a>
-         <a href="#services">Services</a>
-         <a href="#portfolio">Portfolio</a>
-         <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    <!-- home section design -->
-      <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, It's Me</h3>
-            <h1>Zakee Ahmad</h1>
-            <h3>And I'm a <span class="multiple-txt"></span></h3>
-            <p>Aspiring Software Engineer with strong foundations in DSA and system thinking, committed to writing clean, efficient, and scalable code. Actively seeking challenging opportunities to create real-world impact.
-            </p>
-            <div class="social-media">
-                <a href="https://www.instagram.com/zaykee_row99/"><i class='bx bxl-instagram-alt'></i></a>
-                <a href="https://www.facebook.com/zakee.ahmad.142094/"><i class='bx bxl-facebook'></i></a>
-                <a href="#"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/ahmadzakee/"><i class='bx bxl-linkedin'></i></a>
-            </div>
-            <a href="resume (1).pdf" class="btn">Download CV</a>
-        </div>
-         
-        <div class="home-img">
-            <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\Blue and White Modern Professional LinkedIn Profile Picture (3).png" alt="">
-        </div>
-      </section>
-      <!-- about section design -->
-       <section class="about" id="about">
-        <div class="about-img">
-        <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\Blue and White Modern Professional LinkedIn Profile Picture (5).png" alt="">
-        </div>
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>Frontend Developer</h3>
-            <p>I am a Computer Science undergraduate with a strong foundation in Data Structures, Algorithms, and software development. I focus on building efficient, scalable, and well-structured systems while continuously improving my problem-solving abilities. I am committed to writing clean, maintainable code and contributing to impactful engineering solutions.</p>
-            <a href="#" class="btn">Read More..</a>
-        </div>
-       </section>
-    
-     <!-- services section design -->
-      <section class="services" id="services">
-        <h2 class="heading">Our <span>Services</span></h2>
+<div class="progress" id="progress"></div>
 
-        <div class="services-container">
-           <div class="services-box">
-            <i class='bx bx-code-alt' ></i>
-            <h3>Web Development</h3>
-            <p>We design and develop responsive, scalable, and high-performance web applications tailored to modern business needs.From concept to deployment, we develop reliable and maintainable web applications optimized for growth.</p>
-            <a href="#" class="btn">Read More..</a>
-           </div> 
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-           <div class="services-box">
-            <i class='bx bxs-paint' ></i>
-            <h3>Graphic Design</h3>
-            <p>We design creative, modern, and brand-focused visuals that enhance engagement and leave a lasting impression.From logos to digital assets, we deliver clean, strategic, and audience-focused design solutions.</p>
-            <a href="#" class="btn">Read More..</a>
-           </div>
-         
-           <div class="services-box">
-            <i class='bx bx-bar-chart-alt' ></i>
-            <h3>Digital Marketing</h3>
-            <p>We help businesses grow online through targeted campaigns, strategic content, and performance-focused marketing solutions.From social media to search optimization, we create impactful marketing strategies that drive traffic and conversions.</p>
-            <a href="#" class="btn">Read More..</a>
-           </div>
+<nav>
 
-        </div>
-      </section>
+<a href="#home" class="logo">
+Zakee<span>.</span>
+</a>
 
-    <!-- portfolio section design -->
-    
-        <section class="portfolio" id="portfolio">
-            <h2 class="heading">Upcoming <span>Projects 🚀</span></h2>
+<ul class="nav-links" id="navLinks">
 
-            <div class="portfolio-container">
-                <div class="portfolio-box">
-                    <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\amr-taha-aNwGNIAi7Kk-unsplash.jpg" alt="">
-                    <div class="portfolio-layer">
-                         <h4>Graphic Design Project</h4>
-                        <p>Designed creative graphics for digital and print platforms.
-                           Focused on enhancing brand identity and visual communication.
-                           Used tools like Adobe Photoshop, Illustrator, and Canva to deliver high-quality designs.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\nubelson-fernandes-UcYBL5V0xWQ-unsplash.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Development Project</h4>
-                        <p>Designed and developed responsive websites with a focus on user experience and modern UI/UX principles.
-                         Created visually appealing layouts and interactive elements to engage users.
-                         Utilized HTML, CSS, JavaScript, and design tools to deliver functional and attractive web pages.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\erick-chevez-EdUVf4djY3w-unsplash.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Digital Marketing Project</h4>
-                        <p>lanned and executed campaigns across social media and search engines to boost brand visibility.
-                         Optimized SEO, content, and paid ads to drive traffic and engagement.
-                         Analyzed performance metrics to improve conversions and campaign effectiveness.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\mikhail-fesenko-p6YWrjhmjhM-unsplash.jpg" alt="">
+<li><a href="#about">About</a></li>
 
-                    <!-- <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\amr-taha-A_VCJKuLD_c-unsplash.jpg" alt=""> -->
-                    <div class="portfolio-layer">
-                        <h4>App Development Project</h4>
-                        <p>Designed and developed mobile applications with intuitive UI/UX for seamless user experience.
-                        Implemented core functionalities using relevant technologies and frameworks for Android/iOS platforms.
-                        Tested and optimized app performance to ensure reliability, speed, and user engagement.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-box">
-                    <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\digital-environment-scene.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Software Development Project</h4>
-                        <p>Designed and developed robust software solutions to solve real-world problems.
-                         Implemented core functionalities using appropriate programming languages and frameworks.
-                         Tested, debugged, and optimized the software to ensure performance, scalability, and reliability.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-            </div>
-                <div class="portfolio-box">
-                    <!-- <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\mikhail-fesenko-p6YWrjhmjhM-unsplash.jpg" alt=""> -->
-                    <img src="C:\Users\ZAKEE AHMAD\Downloads\New_files\amr-taha-A_VCJKuLD_c-unsplash.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Blogging Project</h4>
-                        <p>Created and managed engaging blog content on relevant topics to attract and retain readers.
-                        Focused on SEO optimization, content strategy, and audience engagement to increase reach.
-                        Analyzed performance metrics to improve readership, interaction, and overall content effectiveness.</p>
-                        <a href="#"><i class='bx bx-link-external'></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<li><a href="#skills">Skills</a></li>
 
-        <!-- contact section design -->
-         <section class="contact" id="contact">
-            <h2 class="heading">Contact <span>Me!</span></h2>
+<li><a href="#projects">Projects</a></li>
 
-<form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="9823c35c-ecd9-41f3-8129-af2d69d86502">
+<li><a href="#journey">Journey</a></li>
 
-    <div class="input-box">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-    </div>
-    <div class="input-box">
-        <input type="number" name="phone" placeholder="Mobile Number">
-        <input type="text" name="subject" placeholder="Email Subject">
-    </div>
-    <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-    <input type="submit" value="Send Message" class="btn">
-</form>
-         </section>
+<li><a href="#contact">Contact</a></li>
 
-         <!-- footer design -->
-<footer class="footer">
-    <div class="footer-container">
+</ul>
 
-        <div class="footer-left">
-            <h3>Zakee Ahmad</h3>
-            <p>Computer Science Engineering Student | Problem Solver | DSA Enthusiast</p>
-        </div>
+<div class="nav-actions">
 
-        <div class="footer-center">
-            <p>© 2026 Zakee Ahmad. All Rights Reserved.</p>
-        </div>
+<button class="command-btn" id="commandBtn">
+⌘ K
+</button>
 
-        <div class="footer-right">
-            <a href="#home" class="scroll-top">
-                <i class='bx bx-up-arrow-alt'></i>
-            </a>
-        </div>
+<button class="menu" id="menu">
+☰
+</button>
 
-    </div>
+</div>
+
+</nav>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="reveal">
+
+<div class="eyebrow">
+
+<span class="live-dot"></span>
+
+Currently building & learning
+
+</div>
+
+<h1>
+
+I build <br>
+
+<span class="gradient">
+digital experiences.
+</span>
+
+</h1>
+
+<p class="hero-description">
+
+I'm Zakee Ahmad — a Computer Science Engineering student,
+developer and problem solver. I enjoy turning ideas into
+interactive experiences while constantly learning something new.
+
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn primary">
+Explore My Work →
+</a>
+
+<a href="#contact" class="btn">
+Let's Connect
+</a>
+
+</div>
+
+</div>
+
+<div class="terminal reveal">
+
+<div class="terminal-top">
+
+<span></span> <span></span> <span></span>
+
+</div>
+
+<div class="terminal-body">
+
+<div class="terminal-line">
+
+<span class="green">$</span>
+whoami
+
+</div>
+
+<div class="terminal-line">
+
+<span class="cyan">name:</span>
+Zakee Ahmad
+
+</div>
+
+<div class="terminal-line">
+
+<span class="purple">role:</span>
+Full Stack Developer in progress
+
+</div>
+
+<div class="terminal-line">
+
+<span class="cyan">focus:</span>
+Web Development + DSA
+
+</div>
+
+<div class="terminal-line">
+
+<span class="green">status:</span>
+Always learning...
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+<div class="section-label">
+01 / ABOUT
+</div>
+
+<h2 class="section-title reveal">
+More than just code.
+</h2>
+
+<div class="about-grid">
+
+<div class="about-text reveal">
+
+<p>
+I'm a Computer Science and Engineering student passionate
+about software development, problem solving and technology.
+</p>
+
+<p>
+I started with programming fundamentals and gradually
+moved into web development, JavaScript, Java and
+Data Structures & Algorithms.
+</p>
+
+<p>
+I'm currently working towards becoming a strong Full Stack
+Developer while building projects that help me learn by doing.
+</p>
+
+</div>
+
+<div class="quote reveal">
+
+"Every expert was once a beginner
+who decided not to stop."
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     CURRENTLY BUILDING
+===================================================== -->
+
+<section>
+
+<div class="section-label">
+02 / CURRENTLY
+</div>
+
+<h2 class="section-title reveal">
+What I'm working on.
+</h2>
+
+<div class="current">
+
+<div class="current-card reveal">
+
+<h3>Full Stack Development</h3>
+
+<p>
+Learning modern frontend and backend technologies
+to build complete web applications.
+</p>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+</div>
+
+<div class="current-card reveal">
+
+<h3>DSA & Problem Solving</h3>
+
+<p>
+Practicing algorithms and data structures to improve
+logical thinking and prepare for technical interviews.
+</p>
+
+<div class="progress-bar">
+<div
+class="progress-fill"
+style="width:60%">
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills">
+
+<div class="section-label">
+03 / TOOLBOX
+</div>
+
+<h2 class="section-title reveal">
+My digital universe.
+</h2>
+
+<div class="skill-world reveal">
+
+<div class="skill-center">
+Zakee.dev
+</div>
+
+<div class="skill-node node1">
+HTML
+</div>
+
+<div class="skill-node node2">
+CSS
+</div>
+
+<div class="skill-node node3">
+JavaScript
+</div>
+
+<div class="skill-node node4">
+Java
+</div>
+
+<div class="skill-node node5">
+DSA
+</div>
+
+<div class="skill-node node6">
+Git & GitHub
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+<div class="section-label">
+04 / PROJECTS
+</div>
+
+<h2 class="section-title reveal">
+Things I've built.
+</h2>
+
+<div class="filters">
+
+<button class="filter active" data-filter="all">
+All
+</button>
+
+<button class="filter" data-filter="web">
+Web
+</button>
+
+<button class="filter" data-filter="javascript">
+JavaScript
+</button>
+
+<button class="filter" data-filter="learning">
+Learning
+</button>
+
+</div>
+
+<div class="projects">
+
+<article
+class="project reveal"
+data-category="web">
+
+<div>
+
+<div class="project-number">
+PROJECT 01
+</div>
+
+<h3>Amazon Clone</h3>
+
+<p>
+A frontend recreation inspired by Amazon's interface.
+Built to understand responsive layouts, navigation
+and real-world website structure.
+</p>
+
+<div class="tags">
+
+<span>HTML</span> <span>CSS</span> <span>Responsive</span>
+
+</div>
+
+</div>
+
+<a
+href="error"
+target="_blank"
+class="project-link">
+
+Explore Project →
+
+</a>
+
+</article>
+
+<article
+class="project reveal"
+data-category="web">
+
+<div>
+
+<div class="project-number">
+PROJECT 02
+</div>
+
+<h3>Personal Portfolio</h3>
+
+<p>
+A personal digital space designed to showcase my
+journey, projects and development skills.
+</p>
+
+<div class="tags">
+
+<span>HTML</span> <span>CSS</span> <span>JavaScript</span>
+
+</div>
+
+</div>
+
+<a
+href="error"
+target="_blank"
+class="project-link">
+
+View GitHub →
+
+</a>
+
+</article>
+
+<article
+class="project reveal"
+data-category="javascript">
+
+<div>
+
+<div class="project-number">
+PROJECT 03
+</div>
+
+<h3>Resume Builder</h3>
+
+<p>
+An interactive concept for creating professional
+resumes through a simple web interface.
+</p>
+
+<div class="tags">
+
+<span>JavaScript</span> <span>HTML</span> <span>CSS</span>
+
+</div>
+
+</div>
+
+<a
+href="error"
+target="_blank"
+class="project-link">
+
+Explore Project →
+
+</a>
+
+</article>
+
+<article
+class="project reveal"
+data-category="learning">
+
+<div>
+
+<div class="project-number">
+PROJECT 04
+</div>
+
+<h3>JavaScript Game</h3>
+
+<p>
+A growing knowledge repository containing JavaScript
+concepts, examples and programming experiments.
+</p>
+
+<div class="tags">
+
+<span>JavaScript</span> <span>ES6+</span> <span>Learning</span>
+
+</div>
+
+</div>
+
+<a
+href="error"
+target="_blank"
+class="project-link">
+
+Explore GitHub →
+
+</a>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     DSA
+===================================================== -->
+
+<section>
+
+<div class="section-label">
+05 / PROBLEM SOLVING
+</div>
+
+<h2 class="section-title reveal">
+The algorithmic side.
+</h2>
+
+<div class="dsa-box reveal">
+
+<div class="dsa-header">
+
+<div>
+
+<h3>DSA Journey</h3>
+
+<p>
+Learning to think before writing the code.
+</p>
+
+</div>
+
+<div class="green">
+● IN PROGRESS
+</div>
+
+</div>
+
+<div class="dsa-grid">
+
+<div class="dsa-stat">
+
+<strong>∞</strong>
+
+<span>
+Problems to solve
+</span>
+
+</div>
+
+<div class="dsa-stat">
+
+<strong>01</strong>
+
+<span>
+Step at a time
+</span>
+
+</div>
+
+<div class="dsa-stat">
+
+<strong>100%</strong>
+
+<span>
+Curiosity
+</span>
+
+</div>
+
+<div class="dsa-stat">
+
+<strong>2026</strong>
+
+<span>
+The comeback year
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section id="journey">
+
+<div class="section-label">
+06 / JOURNEY
+</div>
+
+<h2 class="section-title reveal">
+Still writing my story.
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item reveal">
+
+<div class="timeline-date">
+2025
+</div>
+
+<h3>Started Building</h3>
+
+<p>
+Focused on programming fundamentals and started exploring
+web development and software engineering.
+</p>
+
+</div>
+
+<div class="timeline-item reveal">
+
+<div class="timeline-date">
+2025 — 2026
+</div>
+
+<h3>Mobile Development Internship</h3>
+
+<p>
+Worked with Java and XML while learning Android development
+fundamentals and building a calculator application.
+</p>
+
+</div>
+
+<div class="timeline-item reveal">
+
+<div class="timeline-date">
+NOW
+</div>
+
+<h3>Building. Learning. Repeating.</h3>
+
+<p>
+Currently improving JavaScript, web development and
+Data Structures & Algorithms while building projects
+and preparing for the next stage of my career.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     FUN FACT
+===================================================== -->
+
+<section>
+
+<div class="fun reveal">
+
+<h3>
+Random developer thought
+</h3>
+
+<div class="fact" id="fact">
+Loading something interesting...
+</div>
+
+<button
+class="btn"
+id="factBtn">
+
+Give me another →
+
+</button>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+class="contact"
+id="contact">
+
+<div class="section-label">
+07 / CONTACT
+</div>
+
+<h2 class="reveal">
+
+Let's create <br>
+
+<span class="gradient">
+something memorable.
+</span>
+
+</h2>
+
+<p class="reveal">
+
+Have an idea, opportunity or just want to talk
+about technology? My inbox is always open.
+
+</p>
+
+<div
+class="email-box"
+id="emailBox">
+
+<span>
+ahmadzakee43@gmail.com
+</span>
+
+<span>
+📋
+</span>
+
+</div>
+
+<div class="buttons">
+
+<a
+href="https://github.com/AhmadZakee"
+target="_blank"
+class="btn">
+
+GitHub ↗
+
+</a>
+
+<a
+href="https://www.linkedin.com/"
+target="_blank"
+class="btn primary">
+
+LinkedIn ↗
+
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<span>
+© <span id="year"></span> Zakee Ahmad
+</span>
+
+<span>
+Designed & built with curiosity.
+</span>
+
 </footer>
 
-    
-        <!-- scroll reveal  -->
-        <script src="https://unpkg.com/scrollreveal"></script>
+<!-- BACK TO TOP -->
 
-        <!-- typed js -->
-         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<button
+class="top"
+id="topBtn">
 
-    <!-- custom js -->
-     <script src="script.js"></script>
+↑
+
+</button>
+
+<!-- =====================================================
+     COMMAND PALETTE
+===================================================== -->
+
+<div
+class="palette"
+id="palette">
+
+<div class="palette-box">
+
+<input
+type="text"
+placeholder="Type a command..."
+id="paletteInput">
+
+<div
+class="palette-item"
+data-target="home">
+
+⌂ Go Home
+
+</div>
+
+<div
+class="palette-item"
+data-target="about">
+
+◎ About Me
+
+</div>
+
+<div
+class="palette-item"
+data-target="projects">
+
+◈ View Projects
+
+</div>
+
+<div
+class="palette-item"
+data-target="skills">
+
+✦ Explore Skills
+
+</div>
+
+<div
+class="palette-item"
+data-target="contact">
+
+✉ Contact Me
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"> </script>
+
 </body>
 </html>

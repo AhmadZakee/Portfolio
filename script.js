@@ -1,114 +1,555 @@
-/*========================== toggle icon navbar ========================== */
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+/* =====================================================
+   CURSOR
+===================================================== */
 
-menuIcon.onclick = () => {   
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
-/*========================== scroll section avtive link ========================== */
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+const cursor =
+document.getElementById("cursor");
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+const ring =
+document.getElementById("cursorRing");
 
-        if(top >= offset && top < offset + height) {
-           navLinks.forEach(links => {
-              links.classList.remove('active');
-              document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-           });
-        };
-    });
-    /*========================== sticky navbar ========================== */
+const ambient =
+document.getElementById("ambient");
 
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
+document.addEventListener(
+"mousemove",
+(e) => {
 
-    /*========================== remove toggle icon and navbar when click navbar link (scroll) ========================== */
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
+cursor.style.left =
+e.clientX + "px";
 
-};
+cursor.style.top =
+e.clientY + "px";
 
-    /*========================== scroll reveal ========================== */
+ring.style.left =
+e.clientX + "px";
 
-ScrollReveal({
-    // reset: true,
-    distance:'80px',
-    duration: 2000,
-    delay: 200
-});
+ring.style.top =
+e.clientY + "px";
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top'});
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom'});
-ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left'});
-ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right'});
+ambient.style.left =
+e.clientX + "px";
 
-    /*========================== typed js ========================== */
-   
-const typed = new Typed('.multiple-txt', {
-    strings: ['Frontend Developer', 'Painter' , 'Singer'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
+ambient.style.top =
+e.clientY + "px";
+
 });
 
 
-const canvas = document.getElementById("cursor-glitter");
-const ctx = canvas.getContext("2d");
+/* =====================================================
+   SCROLL PROGRESS
+===================================================== */
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+window.addEventListener(
+"scroll",
+() => {
 
-let particles = [];
-let mouse = { x: 0, y: 0 };
+const scrollTop =
+window.scrollY;
 
-window.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
+const height =
+document.documentElement.scrollHeight -
+window.innerHeight;
 
-  // create small number of particles
-  for (let i = 0; i < 2; i++) {
-    particles.push({
-      x: mouse.x,
-      y: mouse.y,
-      size: Math.random() * 2 + 1,
-      speedX: (Math.random() - 0.5) * 1.5,
-      speedY: (Math.random() - 0.5) * 1.5,
-      life: 60
-    });
-  }
+const progress =
+(scrollTop / height) * 100;
+
+document.getElementById(
+"progress"
+).style.width =
+progress + "%";
+
 });
 
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  particles.forEach((p, index) => {
-    p.x += p.speedX;
-    p.y += p.speedY;
-    p.life--;
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
-    ctx.globalAlpha = p.life / 60;
-    ctx.fillStyle = "#0ef"; // matches your dark theme
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fill();
+const menu =
+document.getElementById("menu");
 
-    if (p.life <= 0) {
-      particles.splice(index, 1);
-    }
-  });
+const navLinks =
+document.getElementById("navLinks");
 
-  requestAnimationFrame(animate);
+menu.addEventListener(
+"click",
+() => {
+
+navLinks.classList.toggle(
+"active"
+);
+
+});
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+const observer =
+new IntersectionObserver(
+(entries) => {
+
+entries.forEach(
+(entry) => {
+
+if(entry.isIntersecting) {
+
+entry.target.classList.add(
+"show"
+);
+
 }
-animate();
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+
+});
+
+},
+{
+threshold:.12
+});
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(
+(el) =>
+observer.observe(el)
+);
+
+
+/* =====================================================
+   PROJECT FILTER
+===================================================== */
+
+const filters =
+document.querySelectorAll(
+".filter"
+);
+
+const projects =
+document.querySelectorAll(
+".project"
+);
+
+filters.forEach(
+(filter) => {
+
+filter.addEventListener(
+"click",
+() => {
+
+filters.forEach(
+(f) =>
+f.classList.remove(
+"active"
+)
+);
+
+filter.classList.add(
+"active"
+);
+
+const category =
+filter.dataset.filter;
+
+projects.forEach(
+(project) => {
+
+if(
+category === "all" ||
+project.dataset.category === category
+) {
+
+project.style.display =
+"flex";
+
+} else {
+
+project.style.display =
+"none";
+
+}
+
+});
+
+});
+
+});
+
+
+/* =====================================================
+   RANDOM FACTS
+===================================================== */
+
+const facts = [
+
+"Every bug is a tiny teacher. Sometimes a very annoying one.",
+
+"Your first version doesn't need to be perfect. It needs to exist.",
+
+"Good developers Google things. Great developers know what to Google.",
+
+"Consistency beats motivation when learning to code.",
+
+"The best way to learn programming is to build something you actually care about.",
+
+"One day your 'I don't understand this' becomes 'Oh... that's it?'"
+
+];
+
+const fact =
+document.getElementById("fact");
+
+const factBtn =
+document.getElementById("factBtn");
+
+function randomFact() {
+
+const random =
+Math.floor(
+Math.random() * facts.length
+);
+
+fact.textContent =
+facts[random];
+
+}
+
+randomFact();
+
+factBtn.addEventListener(
+"click",
+randomFact
+);
+
+
+/* =====================================================
+   COPY EMAIL
+===================================================== */
+
+const emailBox =
+document.getElementById(
+"emailBox"
+);
+
+emailBox.addEventListener(
+"click",
+async () => {
+
+const email =
+"ahmadzakee43@gmail.com";
+
+try {
+
+await navigator.clipboard.writeText(
+email
+);
+
+emailBox.innerHTML =
+"<span>Copied to clipboard ✓</span>";
+
+setTimeout(
+() => {
+
+emailBox.innerHTML =
+"<span>ahmadzakee43@gmailcom</span><span>📋</span>";
+
+},
+2000
+);
+
+} catch(error) {
+
+alert(
+"Email: " + email
+);
+
+}
+
+});
+
+
+/* =====================================================
+   COMMAND PALETTE
+===================================================== */
+
+const palette =
+document.getElementById(
+"palette"
+);
+
+const commandBtn =
+document.getElementById(
+"commandBtn"
+);
+
+const paletteInput =
+document.getElementById(
+"paletteInput"
+);
+
+function openPalette() {
+
+palette.classList.add(
+"active"
+);
+
+paletteInput.focus();
+
+}
+
+function closePalette() {
+
+palette.classList.remove(
+"active"
+);
+
+paletteInput.value = "";
+
+}
+
+commandBtn.addEventListener(
+"click",
+openPalette
+);
+
+document.addEventListener(
+"keydown",
+(e) => {
+
+if(
+(e.ctrlKey || e.metaKey) &&
+e.key.toLowerCase() === "k"
+) {
+
+e.preventDefault();
+
+openPalette();
+
+}
+
+if(
+e.key === "Escape"
+) {
+
+closePalette();
+
+}
+
+});
+
+
+palette.addEventListener(
+"click",
+(e) => {
+
+if(
+e.target === palette
+) {
+
+closePalette();
+
+}
+
+});
+
+
+document
+.querySelectorAll(".palette-item")
+.forEach(
+(item) => {
+
+item.addEventListener(
+"click",
+() => {
+
+const target =
+document.getElementById(
+item.dataset.target
+);
+
+closePalette();
+
+target.scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+});
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const topBtn =
+document.getElementById(
+"topBtn"
+);
+
+window.addEventListener(
+"scroll",
+() => {
+
+if(
+window.scrollY > 600
+) {
+
+topBtn.classList.add(
+"show"
+);
+
+} else {
+
+topBtn.classList.remove(
+"show"
+);
+
+}
+
+});
+
+
+topBtn.addEventListener(
+"click",
+() => {
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+
+/* =====================================================
+   CURRENT YEAR
+===================================================== */
+
+document.getElementById(
+"year"
+).textContent =
+new Date().getFullYear();
+
+
+/* =====================================================
+   MAGNETIC BUTTON EFFECT
+===================================================== */
+
+document
+.querySelectorAll(".btn")
+.forEach(
+(btn) => {
+
+btn.addEventListener(
+"mousemove",
+(e) => {
+
+const rect =
+btn.getBoundingClientRect();
+
+const x =
+e.clientX -
+rect.left -
+rect.width / 2;
+
+const y =
+e.clientY -
+rect.top -
+rect.height / 2;
+
+btn.style.transform =
+`translate(${x*.15}px,${y*.15}px)`;
+
+});
+
+btn.addEventListener(
+"mouseleave",
+() => {
+
+btn.style.transform =
+"translate(0,0)";
+
+});
+
+});
+
+
+/* =====================================================
+   EASTER EGG
+   TYPE: MATRIX
+===================================================== */
+
+let secret = "";
+
+document.addEventListener(
+"keydown",
+(e) => {
+
+secret +=
+e.key.toLowerCase();
+
+if(
+secret.length > 20
+) {
+
+secret =
+secret.slice(-20);
+
+}
+
+if(
+secret.includes("matrix")
+) {
+
+document.body.style.background =
+"#001a00";
+
+document.body.style.color =
+"#00ff41";
+
+alert(
+"Welcome to developer mode. 🟢"
+);
+
+secret = "";
+
+}
+
+});
+
+
+/* =====================================================
+   INTERACTIVE SKILL NODES
+===================================================== */
+
+document
+.querySelectorAll(".skill-node")
+.forEach(
+(node) => {
+
+node.addEventListener(
+"mouseenter",
+() => {
+
+document
+.querySelector(".skill-center")
+.style.transform =
+"translate(-50%,-50%) scale(1.1)";
+
+});
+
+node.addEventListener(
+"mouseleave",
+() => {
+
+document
+.querySelector(".skill-center")
+.style.transform =
+"translate(-50%,-50%) scale(1)";
+
+});
+
 });
